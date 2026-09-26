@@ -35,6 +35,8 @@ export default function getorders() {
 
     const datashow = useQuery({
         queryFn:getordersfunct,
+            queryKey: ["getorders"],
+
     })
 
     console.log(datashow.data);
@@ -57,7 +59,7 @@ export default function getorders() {
 
     <div className="space-y-5">
 
-      {datashow?.data?.map(function (order) {
+      {datashow?.data?.map(function (order: any) {
 
         return (
           <div
@@ -99,7 +101,7 @@ export default function getorders() {
 
             <div className="space-y-4">
 
-              {order.cartItems.map(function (item) {
+              {order.cartItems.map(function (item: any) {
 
                 return (
                   <div

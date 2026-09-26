@@ -9,8 +9,8 @@ import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { onlinepay } from "@/actions/paymentonline";
 
-export default function PayOnlinepage({CartId}) {
-    const rout = useRouter()
+export default function PayOnlinepage({ CartId }: { CartId: string }) {
+      const rout = useRouter()
 
 
 
@@ -29,7 +29,7 @@ export default function PayOnlinepage({CartId}) {
     },
   });
 
-async  function handelsbmiutfunconline(data)  {
+async  function handelsbmiutfunconline(data: any)  {
     
           const dataonlinepay =  await  onlinepay(data,  CartId)
           console.log(dataonlinepay);

@@ -19,7 +19,7 @@ console.log("USER ID2323:", token?.id);
     {
       
       headers: {
-        token: token.token,
+        token: token.token as string,
         "Content-Type": "application/json",
       },
     }

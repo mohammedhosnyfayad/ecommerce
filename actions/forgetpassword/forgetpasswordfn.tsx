@@ -4,7 +4,7 @@ import { gettokendata } from "@/apis/fungettoken/filetoken";
 
 
 
-export async function forgetpasswordapi(data) {
+export async function forgetpasswordapi(data:any) {
  const token =  await gettokendata()
 if  (!token){
  throw new Error("API Error23");
@@ -36,7 +36,7 @@ if  (!token){
 
 
 
-export async function resetcodefunc(resetCode) {
+export async function resetcodefunc(resetCode:any) {
  const token =  await gettokendata()
 
   const response = await fetch(
@@ -63,7 +63,7 @@ export async function resetcodefunc(resetCode) {
 
   return payload;
 }
-export async function resatpassowrdend(data) {
+export async function resatpassowrdend(data:any) {
 
   const response = await fetch(
     "https://ecommerce.routemisr.com/api/v1/auth/resetPassword",

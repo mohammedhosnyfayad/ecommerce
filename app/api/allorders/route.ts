@@ -1,33 +1,35 @@
 import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
 import { jwtDecode } from "jwt-decode";
-export async function GET(req:NextRequest){
+
+export async function GET(req: NextRequest) {
     const token = await getToken({
-        req:req
-        
-    })
-    console.log("tokenreq" , token);
-    
-    const decoded = jwtDecode(token!.token);
-console.log("USER ID:", decoded.id);
-    if(!token){
-        return NextResponse.json({message:"Login frist" , status:401})
+        req: req
+    });
+
+    console.log("tokenreq", token);
+
+    if (!token) {
+        return NextResponse.json({ message: "Login frist", status: 401 });
     }
 
-      const response = await fetch(
-    `https://ecommerce.routemisr.com/api/v1/orders/user/${decoded.id}`,
-  
-      
+    const userToken = token.token as string;
+    const decoded = jwtDecode<{ id: string }>(userToken);
 
-    
-  );
+    console.log("USER ID:", decoded.id);
 
-    if(!response.ok)  return NextResponse.json({message:"Login frist" , status:401})
-  const payload = await response.json();
+    const response = await fetch(
+        `https://ecommerce.routemisr.com/api/v1/orders/user/${decoded.id}`
+    );
 
-  console.log("STATUS:", response.status);
-  console.log("APIpayload:", payload);
+    if (!response.ok) {
+        return NextResponse.json({ message: "Login frist", status: 401 });
+    }
 
+    const payload = await response.json();
 
-  return NextResponse.json(payload);
+    console.log("STATUS:", response.status);
+    console.log("APIpayload:", payload);
+
+    return NextResponse.json(payload);
 }

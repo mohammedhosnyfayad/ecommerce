@@ -1,16 +1,12 @@
-"use client"
+"use client";
+
 import { SessionProvider } from "next-auth/react";
+import { ReactNode } from "react";
 
-
-
-    export function Proiversession({children}){
-
-        return(
-                    <SessionProvider>
-
-
-            {children}
-        </SessionProvider>
-
-        )
-    }
+export function Proiversession({ children }: { children: ReactNode }) {
+  return (
+    <SessionProvider>
+      {children}
+    </SessionProvider>
+  );
+}

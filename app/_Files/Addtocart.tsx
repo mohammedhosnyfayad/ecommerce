@@ -4,7 +4,15 @@ import React, { ReactNode } from 'react'
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
-export default function Addtocart({child  , cls , productId}: {child:string,cls:ReactNode , productId:string}) {
+export default function Addtocart({
+  child,
+  cls,
+  productId,
+}: {
+  child: ReactNode;
+  cls: string;
+  productId: string;
+}) {
 const query  = useQueryClient() 
 async function handel() {
   

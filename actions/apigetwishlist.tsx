@@ -19,7 +19,7 @@ async function callapiwsh(): Promise<WishlistResponse> {
   try {
     const response = await fetch('/api/whilisthandler', {
       headers: {
-        token: token.token,
+        token: token,
         "Content-Type": "application/json"
       }
     });
@@ -41,7 +41,7 @@ async function callapiwsh(): Promise<WishlistResponse> {
 
 // clear
 
-  async function handelclear(productId){
+  async function handelclear(productId:string){
        const datatop =   mutate(productId)
     console.log(datatop);
 

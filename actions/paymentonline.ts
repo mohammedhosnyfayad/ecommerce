@@ -4,7 +4,7 @@ import { gettokendata } from "@/apis/fungettoken/filetoken";
 
 
 
-export async function onlinepay(shippingAddress ,cartId) {
+export async function onlinepay(shippingAddress: any, cartId: string) {
  const token =  await gettokendata()
 if  (!token){
  throw new Error("API Error23");

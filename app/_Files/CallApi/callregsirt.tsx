@@ -3,10 +3,9 @@
 
 import axios from 'axios'
 import React from 'react'
-import { async } from './../../../.next/dev/types/routes.d';
 
 
-export async function  apisignin(data) {
+export async function  apisignin(data: any) {
    axios
     .post(
       "https://ecommerce.routemisr.com/api/v1/auth/signup",

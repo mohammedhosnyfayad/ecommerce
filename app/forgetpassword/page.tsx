@@ -41,7 +41,7 @@ export default function ForgotPassword() {
   });
 
 
- async function handelresetpasswordfunc(data) {
+ async function handelresetpasswordfunc(data:any) {
     const fayad = await resatpassowrdend(data)
      console.log("end" ,fayad);
 
@@ -49,12 +49,12 @@ export default function ForgotPassword() {
 
 
 
- async function onSubmitFUNC(data) {
+ async function onSubmitFUNC(data:any) {
     console.log(data);
   const msgforget = await   funcforgetpassword(data)
   
   }
- async function handelresetcode(resetCode) {
+ async function handelresetcode(resetCode:any) {
     console.log(resetCode);
   const msgresetcode = await   resetcodefunction(resetCode)
 

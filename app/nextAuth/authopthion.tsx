@@ -1,8 +1,5 @@
 import { NextAuthOptions } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import { email } from "zod";
-import { async } from './../_Files/CallApi/callregsirt';
-import axios from "axios";
 
 export const auth : NextAuthOptions = {
     providers:[
@@ -50,14 +47,14 @@ export const auth : NextAuthOptions = {
 
             if(user){
                 token.id = user.id
-                token.token = user.token
+                token.token = (user as any).token
             }
 return token
         },
 
        session({session , token}){
         if(token){
-            session.id = token.id
+            (session as any).id = token.id
         }
 
         return session

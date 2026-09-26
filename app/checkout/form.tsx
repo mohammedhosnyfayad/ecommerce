@@ -8,7 +8,7 @@ import { Cashpay } from "@/actions/paycash";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 
-export default function ShippingAddress({CartId}) {
+export default function ShippingAddress({ CartId }: { CartId: string }) {
     const rout = useRouter()
 
 
@@ -28,7 +28,7 @@ export default function ShippingAddress({CartId}) {
     },
   });
 
-async  function handelsbmiutfunc(data)  {
+async  function handelsbmiutfunc(data: any)  {
     
           const dataCashpay =  await  Cashpay(data,  CartId)
    if(dataCashpay.status === "success"){

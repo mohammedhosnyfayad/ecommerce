@@ -54,7 +54,7 @@ export default function page() {
     mode:"onBlur"
   })
 
-  function senddata(data){
+  function senddata(data: any){
     console.log(data);
     apisignin(data)
     // router.push(`/login`)

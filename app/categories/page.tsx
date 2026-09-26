@@ -31,7 +31,7 @@ export default function Categories() {
   return (
     <div className="container mx-auto m-10 px-4">
       <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-        {data?.data?.map(function (category) {
+        {data?.data?.map(function (category: any) {
           return (
             <div
               key={category._id}

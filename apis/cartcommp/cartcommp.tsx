@@ -48,7 +48,7 @@ export default function Cartcommp() {
         }
       
     })
-    function handel(productId , count){
+    function handel(productId: string, count: number){
     cartfunudate({productId , count}) 
     }
 
@@ -125,7 +125,7 @@ export default function Cartcommp() {
               </button>
             </td>
             <td className="px-2 py-2" colSpan={2}>
-              <button onClick={clearcartfunc} className="px-8 py-3.5 cursor-pointer bg-[#f2f2f2] rounded-[43px] text-[#4c4c4c] text-sm font-semibold className leading-[16px]">
+              <button onClick={() => clearcartfunc()} className="px-8 py-3.5 cursor-pointer bg-[#f2f2f2] rounded-[43px] text-[#4c4c4c] text-sm font-semibold className leading-[16px]">
                 clearCart
               </button>
             </td>

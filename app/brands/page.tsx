@@ -12,7 +12,7 @@ console.log("data:", data.data);
   return (
 <div className="container mx-auto m-10 px-4">
   <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-    {data?.data?.map(function (brand) {
+    {data?.data?.map(function (brand: any) {
       return (
         <div
           key={brand._id}

@@ -2,8 +2,8 @@ import React from "react";
 import Addtocart from "../_Files/Addtocart";
 
 
-export default function Designdeits({prodcut}) {
-    console.log(prodcut);
+export default function Designdeits({ prodcut }: { prodcut: any }) {    
+  console.log(prodcut);
     
   return (
     <div className="bg-gray-100 min-h-screen">

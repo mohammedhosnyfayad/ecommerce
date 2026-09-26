@@ -5,7 +5,15 @@ import { useMutation } from '@tanstack/react-query'
 import React from 'react'
 import { toast } from "react-toastify";
 
-export default function AddWhielist({child , cls , prodid}) {
+export default function AddWhielist({
+  child,
+  cls,
+  prodid,
+}: {
+  child: React.ReactNode;
+  cls: string;
+  prodid: string;
+}) {
  async function handelwhielist(){
    const wshlistdata = await mutate(prodid)
   }

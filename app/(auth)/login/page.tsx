@@ -4,11 +4,12 @@ import { signIn } from 'next-auth/react'
 import { useRouter } from "next/navigation";
 import React from 'react'
 import * as z from "zod";
-
+import Link from "next/link"
 import { useForm } from 'react-hook-form'
 import { Input } from "@/components/ui/input"
 import { Controller } from 'react-hook-form'
 import { zodResolver } from "@hookform/resolvers/zod"
+import ForgotPassword from '@/app/forgetpassword/page';
 
 export default function page() {
     const rout = useRouter()
@@ -35,7 +36,7 @@ export default function page() {
   })
 
 
-  async function DataLogin(data){
+  async function DataLogin(data: any){
       console.log(data);
 
   const islogin = await  signIn('credentials' , {...data , redirect:false})
@@ -113,7 +114,9 @@ export default function page() {
   >
     Sign In
   </button>
-
+      <Link href="/forgetpassword">
+      <p className="text-center">forgetpassword</p>
+      </Link>
 </form>
 
         </div>
