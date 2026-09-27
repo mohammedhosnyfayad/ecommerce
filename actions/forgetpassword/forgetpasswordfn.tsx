@@ -5,10 +5,6 @@ import { gettokendata } from "@/apis/fungettoken/filetoken";
 
 
 export async function forgetpasswordapi(data:any) {
- const token =  await gettokendata()
-if  (!token){
- throw new Error("API Error23");
-}
   const response = await fetch(
     "https://ecommerce.routemisr.com/api/v1/auth/forgotPasswords",
     {

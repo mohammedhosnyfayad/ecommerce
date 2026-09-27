@@ -9,8 +9,9 @@ import { useMutation } from "@tanstack/react-query";
 import { toast } from 'react-toastify'
 import {  useQuery, useQueryClient } from '@tanstack/react-query'
 import { useState } from "react";
-
+import { useRouter } from "next/navigation";
 export default function ForgotPassword() {
+  const router = useRouter();
     const [success , issuccess] = useState(false)
     const [codesuccess , setcodesuccess] = useState(false)
   const { control, handleSubmit } = useForm({
@@ -42,8 +43,13 @@ export default function ForgotPassword() {
 
 
  async function handelresetpasswordfunc(data:any) {
-    const fayad = await resatpassowrdend(data)
-     console.log("end" ,fayad);
+    const passowrdend = await resatpassowrdend(data)
+     console.log("end" , passowrdend);
+
+       if (passowrdend) {
+    router.push("/login");
+  }
+
 
   }
 
@@ -233,8 +239,8 @@ console.log(codesuccess);
                   {...field}
 
                   type="password"
-                  placeholder="Email"
-                  className="w-full px-8 py-4 rounded-lg font-medium text-black bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                  placeholder="newPassword"
+                  className="w-full mt-15 px-8 py-4 rounded-lg font-medium text-black bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                 />
 
                 {fieldState.error && (
