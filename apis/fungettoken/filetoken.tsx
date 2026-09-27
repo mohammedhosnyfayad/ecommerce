@@ -8,6 +8,9 @@ export async function gettokendata(): Promise<string | undefined> {
 
   const Nametoken = cookis.get("next-auth.session-token")?.value;
 
+  console.log("COOKIE TOKEN:", Nametoken);
+  console.log("SECRET EXISTS:", !!process.env.NEXTAUTH_SECRET);
+
   const valuetoken = await decode({
     secret: process.env.NEXTAUTH_SECRET!,
     token: Nametoken,
