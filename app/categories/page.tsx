@@ -1,6 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
+import Link from "next/link";
 
 export default function Categories() {
   async function getCategories() {
@@ -33,8 +34,9 @@ export default function Categories() {
       <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
         {data?.data?.map(function (category: any) {
           return (
-            <div
-              key={category._id}
+            <Link  key={category._id} href={`/categoriessingle/${category._id}`}>
+                        <div
+              
               className="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
               <div className="flex h-40 items-center justify-center bg-gray-50 p-6">
@@ -49,12 +51,13 @@ export default function Categories() {
                 <h2 className="text-lg font-semibold text-gray-800 transition-colors duration-300 group-hover:text-green-600">
                   {category.name}
                 </h2>
-
                 <p className="mt-1 text-xs text-gray-400">
                   {category.slug}
                 </p>
               </div>
             </div>
+
+            </Link>
           );
         })}
       </div>
